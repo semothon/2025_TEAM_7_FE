@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
+
+        :root {
+          --safe-top: env(safe-area-inset-top);
+          --safe-bottom: env(safe-area-inset-bottom);
+          --safe-left: env(safe-area-inset-left);
+          --safe-right: env(safe-area-inset-right);
+        }
+
+
+        * {
+          font-family: "Noto Sans KR", serif;
+          overscroll-behavior: none; /* 스크롤 넘침 방지 */
+
+          user-select: none; /* 텍스트 선택 방지 */
+          -webkit-user-select: none; /* Safari, iOS */
+          -moz-user-select: none;
+          -ms-user-select: none;
+          touch-callout: none; /* iOS에서 선택 메뉴 방지 */
+        }
+
+        body {
+          /* default font size */
+          font-size: 16px;
+        }
+
+        select {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\' fill=\'%234A5568\'><path fill-rule=\'evenodd\' d=\'M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\' clip-rule=\'evenodd\'/></svg>')
+            no-repeat;
+          background-position: right 1rem center;
+          background-size: 1rem;
+          padding-right: 2.5rem; /* 화살표와 텍스트 간 여백 확보 */
+        }
+
+        /* small size mobile device (ex. iPhone SE) */
+        @media (max-width: 320px) {
+          body {
+            font-size: 14px;
+          }
+        }
+
+        /* medium size mobile device (ex. iPhone 8, Galaxy S8) */
+        @media (min-width: 321px) and (max-width: 375px) {
+          body {
+            font-size: 15px;          
+          }
+        }
+
+        /* big mobile device (ex. iPhone 8 Plus, Galaxy S9+) */
+        @media (min-width: 376px) and (max-width: 425px) {
+          body {
+            font-size: 16px;
+          }
+        }
+
+        /* biggest size mobile device (예: iPhone XS Max, Galaxy Note 시리즈) */
+        @media (min-width: 426px) and (max-width: 768px) {
+          body {
+            font-size: 17px;
+          }
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
