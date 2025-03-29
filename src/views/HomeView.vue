@@ -2,7 +2,7 @@
     <div class="h-screen overflow-y-auto bg-white font-sans">
 
 
-      <div class="mt-[70px] bg-white p-4">
+      <div class="mt-[20px] bg-white p-4">
 
         <div class="flex justify-between items-center border px-5 py-3 rounded-[15px] shadow-xl ">
             <div>
@@ -101,7 +101,7 @@
         </div>
   
         <h2 class="mt-12 text-lg font-semibold">실시간 인기 모임</h2>
-        <div class="mt-4 space-y-3 mb-[50px]">
+        <div class="mt-4 space-y-3 mb-[100px]">
           <div
             v-for="popular in popularGroups"
             :key="popular.name"
