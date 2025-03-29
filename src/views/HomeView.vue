@@ -27,7 +27,7 @@
       </div>
     <!-- 슬라이드 영역 -->
     <div class="flex flex-col items-center pt-4">
-      <div class="flex overflow-x-scroll snap-x snap-mandatory mt-2 w-full px-6">
+      <div class="flex overflow-x-scroll snap-x snap-mandatory mt-2 w-full pl-7 pr-10">
         <div
           v-for="(item, index) in slides"
           :key="index"
