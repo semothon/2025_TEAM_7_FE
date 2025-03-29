@@ -17,8 +17,11 @@
     </div> -->
 
     <div 
-      class="inline-block w-full max-w-screen-sm min-h-dvh device-border">
+      class="pt-[60px]">
       <router-view></router-view>
+
+      <Header />
+
     </div>
     <!-- -->
 
@@ -26,6 +29,13 @@
 </template>
 
 <script setup>
+import Header from './components/HeaderComp.vue';
+
+
+
+
+
+
 // import { ref, onMounted } from 'vue';
 // import InitView from './components/InitView.vue';
 
