@@ -1,11 +1,12 @@
 <template>
   <div class="w-full text-center ">
-    <!--
-      pc 버전 접속 시 상태 탭
-    -->
-
-    <div>
-
+    
+    <!-- PC 버전 경고 메시지 -->
+    <div class="hidden sm:block h-screen flex items-center justify-center text-center px-4">
+      <p class="text-xl font-[300] bg-[#FF6BC4] inline-block p-5 text-white rounded-[5px] mt-5">
+        Loopin은 모바일 전용 웹사이트입니다!<br />
+        모바일 화면 사이즈로 확인해주세요.
+      </p>
     </div>
     <!--
       max-w-screen-sm  =  640 px
@@ -17,7 +18,7 @@
     </div> -->
 
     <div 
-      class="pt-[60px]">
+      class="pt-[60px] sm:hidden">
       <router-view></router-view>
 
       <Header />
