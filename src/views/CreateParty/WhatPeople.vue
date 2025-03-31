@@ -3,7 +3,8 @@
       <div id="top">
         <span @click="router.push('/home')">×</span>
       </div>
-  
+      <ProgressBar :count="2" />
+
       <div class="question">어떤 사람들과 함께 하고 싶으신가요?</div>
   
       <!-- 연령대 선택 -->
@@ -51,7 +52,8 @@
   <script setup>
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
-  
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+
   const router = useRouter()
   
   // 선택지

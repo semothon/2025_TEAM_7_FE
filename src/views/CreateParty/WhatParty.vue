@@ -1,9 +1,10 @@
 <template>
+
     <div id="main">
       <div id="top">
         <span @click="router.push('/home')">×</span>
       </div>
-  
+      <ProgressBar :count="1" />
       <!-- 다음 버튼 -->
       <div id="submit-button-wrapper">
         <div
@@ -47,6 +48,7 @@
   <script setup>
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
   
   const router = useRouter()
   

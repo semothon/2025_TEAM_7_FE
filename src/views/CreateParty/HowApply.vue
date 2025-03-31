@@ -3,6 +3,9 @@
       <div id="top">
         <span @click="router.push('/home')">×</span>
       </div>
+
+      <ProgressBar :count="5" />
+
       <h1 class="">가입은 어떻게 받을까요?</h1>
   
       <div class="option-container">
@@ -65,6 +68,9 @@
   import radio_off from '../../components/svgs/radio_off.svg'
   import radio_on from '../../components/svgs/radio_on.svg'
   import { useRouter } from 'vue-router'
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+
+  
   const router = useRouter()
   
   const radio = ref('')

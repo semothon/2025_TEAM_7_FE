@@ -3,7 +3,8 @@
       <div id="top">
         <span @click="router.push('/home')">×</span>
       </div>
-  
+      <ProgressBar :count="3" />
+
       <h1>모임을 소개해주세요!</h1>
   
       <!-- 모임명 입력 -->
@@ -63,7 +64,8 @@
   <script setup>
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
-  
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+
   const router = useRouter()
   
   // 입력값

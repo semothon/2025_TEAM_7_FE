@@ -1,8 +1,10 @@
 <template>
 <div id="main">
     <div id="top">
-        <span @click="router.push('/home')">×</span>
+            <span @click="router.go(-1)">×</span>
         </div>    
+        <ProgressBar :count="6" />
+
     <h1>모임 사진을 등록해주세요!</h1>
     
     <div class="photo-section text-left">
@@ -31,6 +33,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 const router = useRouter()
+import ProgressBar from "../../components/CretaePartyProgressBar.vue"
 
 </script>
 

@@ -3,7 +3,8 @@
       <div id="top">
         <span @click="router.push('/home')">×</span>
       </div>
-  
+      <ProgressBar :count="4" />
+
       <h1>모임을 소개해주세요!</h1>
   
       <!-- 활동 장소 -->
@@ -89,7 +90,8 @@
   <script setup>
   import { ref, computed, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
-  
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+
   const router = useRouter()
   
   const address = ref('')
