@@ -1,7 +1,7 @@
 <template>
     <div id="main" class="text-left">
       <div id="top">
-        <span @click="router.go(-1)">×</span>
+        <span @click="router.push('/home')">×</span>
       </div>
       <h1 class="">가입은 어떻게 받을까요?</h1>
   

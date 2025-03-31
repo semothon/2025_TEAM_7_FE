@@ -1,7 +1,7 @@
 <template>
     <div id="main">
       <div id="top">
-        <span @click="router.go(-1)">×</span>
+        <span @click="router.push('/home')">×</span>
       </div>
   
       <!-- 다음 버튼 -->

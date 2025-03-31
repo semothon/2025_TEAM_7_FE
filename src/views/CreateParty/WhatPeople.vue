@@ -1,7 +1,7 @@
 <template>
     <div id="main">
       <div id="top">
-        <span @click="router.go(-1)">×</span>
+        <span @click="router.push('/home')">×</span>
       </div>
   
       <div class="question">어떤 사람들과 함께 하고 싶으신가요?</div>
