@@ -18,10 +18,9 @@
     </div> -->
 
     <div 
-      class="pt-[60px] sm:hidden">
+      class=" sm:hidden">
       <router-view></router-view>
 
-      <Header />
 
     </div>
     <!-- -->
@@ -30,7 +29,6 @@
 </template>
 
 <script setup>
-import Header from './components/HeaderComp.vue';
 
 
 
@@ -51,12 +49,6 @@ import Header from './components/HeaderComp.vue';
 
 <style scoped>
 
-@media (min-width: 640px) { /* screen-sm 이상의 경우 적용 */
-  .device-border {  
-    border-left: 0.1px solid #c5c5c5;
-    border-right: 0.1px solid #c5c5c5;
-  }
-}
 
 </style>
 
