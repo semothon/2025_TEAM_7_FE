@@ -22,36 +22,73 @@
     <div class="text-left mx-5 mt-7 text-lg font-semibold">바로가기</div>
 
     <div class="flex flex-col items-center pt-4">
-      <div class="flex overflow-x-scroll snap-x snap-mandatory mt-2 w-full pl-7 pr-10">
+      <div ref="slideWrapper" class="flex overflow-x-scroll snap-x snap-mandatory mt-2 w-full pl-7 pr-10" @scroll="handleScroll">
+        <!-- 직접 하드코딩된 슬라이드 4개 -->
         <div
-          v-for="(item, index) in slides"
-          :key="index"
-          class="snap-center text-left flex-shrink-0 w-[75vw] mx-[4vw] bg-[#D5FF8E] rounded-[20px] px-7 py-3 shadow transition"
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          :class="currentSlide === 0 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
-          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">{{ item.title }}</h3>
-          <p class="mt-2 text-sm" v-html="item.content"></p>
+          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임탐색</h3>
+          <p class="mt-2 text-sm">나의 관심사에 따라<br />마음에 드는 모임을 찾아보세요!</p>
           <div class="flex justify-center my-5">
-            <img :src="item.icon" class="h-[100px]" />
+            <img :src="findGroupIcon" class="h-[100px]" />
+          </div>
+          <button class="mt-6 w-full py-4 text-lg font-semibold bg-black text-[#D5FF8E] rounded-[15px]">모임 찾아보기</button>
+        </div>
+
+        <div
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          :class="currentSlide === 1 ? 'bg-[#D5FF8E]' : 'bg-white'"
+        >
+          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임생성</h3>
+          <p class="mt-2 text-sm">마음에 드는 모임이 없나요?<br />직접 모임장이 되어보세요!</p>
+          <div class="flex justify-center my-5">
+            <img :src="createIcon" class="h-[100px]" />
           </div>
           <button
             class="mt-6 w-full py-4 text-lg font-semibold bg-black text-[#D5FF8E] rounded-[15px]"
-            @click="item.title === '모임생성' ? goCreateParty() : null"
+            @click="goCreateParty"
           >
-            {{ item.button }}
+            모임 생성하기
           </button>
+        </div>
+
+        <div
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
+        >
+          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">팀원찾기</h3>
+          <p class="mt-2 text-sm">같이 활동할 팀원을 찾고 싶다면<br />모임에 딱 맞는 팀원을 찾아보세요</p>
+          <div class="flex justify-center my-5">
+            <img :src="findMemberIcon" class="h-[100px]" />
+          </div>
+          <button class="mt-6 w-full py-4 text-lg font-semibold bg-black text-[#D5FF8E] rounded-[15px]">팀원 찾아보기</button>
+        </div>
+
+        <div
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          :class="currentSlide === 3 ? 'bg-[#D5FF8E]' : 'bg-white'"
+        >
+          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">지원현황</h3>
+          <p class="mt-2 text-sm">내가 지원한 모임 현황이에요<br />지원현황을 확인하고 관리해보세요</p>
+          <div class="flex justify-center my-5">
+            <img :src="manageIcon" class="h-[100px]" />
+          </div>
+          <button class="mt-6 w-full py-4 text-lg font-semibold bg-black text-[#D5FF8E] rounded-[15px]">지원현황 보기</button>
         </div>
       </div>
 
       <div class="flex space-x-5 mt-7">
         <div
-          v-for="(item, idx) in slides"
-          :key="idx"
+          v-for="n in 4"
+          :key="n"
           class="w-2 h-2 rounded-full"
-          :class="currentSlide === idx ? 'bg-gray-700' : 'bg-gray-300'"
+          :class="currentSlide === n - 1 ? 'bg-gray-700' : 'bg-gray-300'"
         ></div>
       </div>
     </div>
 
+    <!-- 당신이 좋아할 만한 모임 -->
     <div class="px-5 mt-12 pb-20 text-left">
       <h2 class="mt-6 text-lg font-semibold">당신이 좋아할 만한 모임</h2>
       <div class="mt-4 grid grid-cols-2 gap-4">
@@ -79,25 +116,7 @@
                   <span class="text-[0.75rem]">{{ group.category }}</span>
                 </div>
                 <div class="top-0 left-0">
-                  <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_16_227)">
-                      <rect x="12" y="6" width="31" height="31" rx="15.5" fill="white" />
-                    </g>
-                    <rect width="16.5685" height="16.9706" transform="translate(26 10) rotate(45)" fill="white" />
-                    <path d="..." fill="#FF6BC4" />
-                    <defs>
-                      <filter id="filter0_d_16_227" x="0" y="0" width="55" height="55" filterUnits="userSpaceOnUse">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="..." result="hardAlpha" />
-                        <feOffset dy="6" />
-                        <feGaussianBlur stdDeviation="6" />
-                        <feComposite in2="hardAlpha" operator="out" />
-                        <feColorMatrix type="matrix" values="..." />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_16_227" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_16_227" result="shape" />
-                      </filter>
-                    </defs>
-                  </svg>
+                  <!-- 버튼 아이콘 -->
                 </div>
               </div>
             </div>
@@ -114,19 +133,13 @@
               <div class="text-xs text-gray-500">{{ popular.description }}</div>
             </div>
             <div class="flex items-center gap-1">
-              <div>
-                <svg width="15" height="15" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="..." fill="#0073FF" />
-                </svg>
-              </div>
+              <div><!-- 화살표 아이콘 --></div>
               <div class="text-blue-500 font-bold">{{ popular.members }}</div>
             </div>
           </div>
 
           <div class="bg-[#FF6BC4] flex items-center justify-center w-[17%] ml-[3%] rounded-[10px]">
-            <svg width="30" height="30" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="..." fill="white" />
-            </svg>
+            <!-- 더보기 아이콘 -->
           </div>
         </div>
       </div>
@@ -137,52 +150,45 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import Header from '../components/HeaderComp.vue';
-import Footer from '../components/FooterComp.vue';
-import Create from '../components/svgs/create.svg';
-import FindGroup from '../components/svgs/findGroup.svg';
-import FindMember from '../components/svgs/findMember.svg';
-import Manage from '../components/svgs/manage.svg';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import Header from '../components/HeaderComp.vue'
+import Footer from '../components/FooterComp.vue'
+import Create from '../components/svgs/create.svg'
+import FindGroup from '../components/svgs/findGroup.svg'
+import FindMember from '../components/svgs/findMember.svg'
+import Manage from '../components/svgs/manage.svg'
 
-const router = useRouter();
+const router = useRouter()
 
 const goCreateParty = () => {
-  router.push('/create-party/what-party');
-};
+  router.push('/create-party/what-party')
+}
 
-const slides = ref([
-  { title: '모임탐색', content: '나의 관심사에 따라<br>마음에 드는 모임을 찾아보세요!', button: '모임 찾아보기', icon: FindGroup },
-  { title: '모임생성', content: '마음에 드는 모임이 없나요?<br>직접 모임장이 되어 모임을 만들어보세요!', button: '모임 생성하기', icon: Create },
-  { title: '팀원찾기', content: '같이 활동할 팀원을 찾고 싶다면<br>모임에 딱 맞는 팀원을 찾아보세요', button: '팀원 찾아보기', icon: FindMember },
-  { title: '지원현황', content: '내가 지원한 모임 현황이에요<br>지원현황을 확인하고 관리해보세요', button: '지원현황 보기', icon: Manage },
-]);
-
-const currentSlide = ref(0);
+const currentSlide = ref(0)
 
 const handleScroll = (e) => {
-  const element = e.target;
-  const slideWidth = element.offsetWidth * 0.8;
-  currentSlide.value = Math.round(element.scrollLeft / slideWidth);
-};
+  const el = e.target
+  const slideWidth = el.offsetWidth * 0.8
+  currentSlide.value = Math.round(el.scrollLeft / slideWidth)
+}
+
+const createIcon = Create
+const findGroupIcon = FindGroup
+const findMemberIcon = FindMember
+const manageIcon = Manage
 
 const recommendedGroups = [
   { name: '축구', category: '스포츠•레저', hashtag: ["Activity", "체육학과", "Teamwork"], image: 'https://source.unsplash.com/random/1' },
   { name: '등산', category: '운동•아웃도어', hashtag: ["Activity", "Hiking", "Nature"], image: 'https://source.unsplash.com/random/2' },
   { name: '어학 스터디', category: '스터디•자기계발', hashtag: ["Study", "프랑스어학과", "Exam"], image: 'https://source.unsplash.com/random/3' },
   { name: '보드게임', category: '문화•여가', hashtag: ["Game", "Party", "Competion"], image: 'https://source.unsplash.com/random/4' },
-];
+]
 
 const popularGroups = [
   { name: '독서 스터디', description: '같이 책 읽고 이야기 나누실 분!', members: '60' },
   { name: '교내 공모전', description: 'OO공모전 함께 나가실 분!', members: '31' },
-];
-
-onMounted(() => {
-  const slider = document.querySelector('.snap-x');
-  slider.addEventListener('scroll', handleScroll);
-});
+]
 </script>
 
 <style scoped>
