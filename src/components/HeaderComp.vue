@@ -1,14 +1,14 @@
 <template>
-<div class="flex w-dvw justify-between items-center fixed top-0 z-10 px-6 py-5 bg-white border-b-[0.1px] border-[#c5c5c5]">
+<div class="flex w-dvw justify-between items-center fixed top-0 z-10 pl-3 pr-6  bg-white border-b-[0.1px] border-[#c5c5c5]">
     <!-- 로고 -->
     <div>
         <div>
-            Loopin로고
+            <img src="../assets/logo.png"  class="w-[7.2rem]"/>
         </div>
     </div>
 
     <!-- 우측 메뉴 -->
-    <div class="flex gap-3">
+    <div class="flex gap-3 py-[1.1rem]">
 
         <div class="menu-btn">
             <svg width="20" height="20" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

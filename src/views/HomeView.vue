@@ -1,7 +1,7 @@
 <template>
   <Header />
 
-  <div class="pt-[80px] h-screen overflow-y-auto bg-white font-sans">
+  <div class="pt-[71px] h-screen overflow-y-auto bg-white font-sans">
     <div class="bg-white p-4">
       <div class="flex gap-4 justify-left items-center border px-4 py-3 rounded-[7px] bg-[#eeeeee]">
         <div>
