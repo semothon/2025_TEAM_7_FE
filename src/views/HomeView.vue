@@ -112,13 +112,32 @@
               style="background: linear-gradient(to right, #FF6BC4, #F599D0CC);"
               class="bg-black h-[35%] flex flex-col justify-center  pl-3 py-7 text-white"
             >
-              <div class="flex justify-between w-full">
+              <div class="flex justify-between items-center w-full">
                 <div class="flex flex-col">
                   <span class="font-bold text-[0.92rem]">{{ group.name }}</span>
                   <span class="text-[0.75rem]">{{ group.category }}</span>
                 </div>
-                <div class="top-0 left-0">
-                  <!-- 버튼 아이콘 -->
+                <div class="flex items-center">
+                  <svg width="55" height="55"  class="mt-2" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_169_426)">
+                    <rect x="12" y="6" width="31" height="31" rx="15.5" fill="white"/>
+                    </g>
+                    <rect width="16.5685" height="16.9706" transform="translate(26 10) rotate(45)" fill="white"/>
+                    <path d="M35.0588 21.7476C35.061 21.5612 35.0135 21.3789 34.9211 21.2193C34.8287 21.0597 34.6949 20.9287 34.5334 20.8397L34.5265 20.8328L23.0125 14.7787C22.8278 14.6782 22.6155 14.637 22.4039 14.6604C22.1923 14.6839 21.9912 14.7709 21.8273 14.91C21.6635 15.0492 21.5446 15.2338 21.4865 15.4394C21.4283 15.6451 21.4336 15.8621 21.5017 16.0617L23.4492 21.8867L21.361 27.7551C21.2913 27.9424 21.2762 28.1444 21.3175 28.3374C21.3587 28.5303 21.4547 28.7061 21.5939 28.8439C21.6149 28.865 21.6369 28.8851 21.6599 28.9042C21.8199 29.0398 22.0187 29.1221 22.2297 29.1402C22.4407 29.1583 22.6537 29.1112 22.8401 29.0054L34.5008 22.6717C34.5031 22.6694 34.5055 22.667 34.5078 22.6647C34.6717 22.5726 34.809 22.439 34.9059 22.2779C35.0027 22.1167 35.0555 21.9337 35.0588 21.7476ZM22.355 28.091L22.3462 28.0953L22.3495 28.092L24.374 22.4008L28.8207 22.3475C28.9573 22.3424 29.0878 22.2841 29.1844 22.1851C29.281 22.0861 29.3359 21.9542 29.3376 21.8175C29.3392 21.6809 29.2874 21.5503 29.1932 21.4535C29.099 21.3568 28.9698 21.3016 28.8332 21.2998L24.3865 21.3531L22.4965 15.7075L22.4933 15.7043L22.4997 15.7107L34.0101 21.7601L22.355 28.091Z" fill="#FF6BC4"/>
+                    <defs>
+                    <filter id="filter0_d_169_426" x="0" y="0" width="55" height="55" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="6"/>
+                    <feGaussianBlur stdDeviation="6"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_169_426"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_169_426" result="shape"/>
+                    </filter>
+                    </defs>
+                  </svg>
+
                 </div>
               </div>
             </div>
