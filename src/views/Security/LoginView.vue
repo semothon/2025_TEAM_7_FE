@@ -12,7 +12,7 @@
       <div class="mt-12 text-left">
         <h1 class="text-xl font-bold leading-snug text-gray-700">
           <span class="text-[#FF6BC4] font-bold">LOOPIN</span>으로 시작하세요<br />
-          우리 학교 안에서, 연결이 시작돼요.
+          우리 학교 안에서, 연결이 시작돼요
         </h1>
         <p class="text-sm text-gray-400 mt-2">대학생 모임의 시작은 LOOPIN에서</p>
       </div>
