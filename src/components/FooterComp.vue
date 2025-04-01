@@ -2,7 +2,7 @@
 <div class="fixed bottom-5 w-dvw flex justify-center ">
 
     <div class="bg-[#ff84ce] rounded-full w-[89dvw] px-7 py-2 flex justify-between text-center ">
-        <div class="nav-btn">
+        <div class="nav-btn" @click="router.push('/home')">
             <div>
 
                 <svg v-if="props.tab=='home'" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
                 모임탐색
             </div>  
         </div>
-        <div class="nav-btn">
+        <div class="nav-btn" @click="router.push('/my-party')">
             <div>
 
                 <svg v-if="tab=='my'" width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +70,9 @@
 
 <script setup>
  import { defineProps } from 'vue'
-  
+ import { useRouter } from 'vue-router'
+
+  const router = useRouter()
   const props = defineProps({
     tab: {
       type: String,
