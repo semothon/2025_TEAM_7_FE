@@ -3,26 +3,28 @@
 
   <div class="pt-[80px] h-screen overflow-y-auto bg-white font-sans">
     <div class="bg-white p-4">
-      <div class="flex justify-between items-center border px-5 py-3 rounded-[15px] shadow-xl">
+      <div class="flex gap-4 justify-left items-center border px-4 py-3 rounded-[7px] bg-[#eeeeee]">
+        <div>
+          <svg width="18  " height="18" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.7075 25.2925L20.4488 19.035C22.2628 16.8571 23.1674 14.0637 22.9743 11.2359C22.7812 8.40808 21.5054 5.76355 19.4122 3.85244C17.319 1.94134 14.5696 0.910797 11.7359 0.975197C8.90222 1.0396 6.20246 2.19398 4.19824 4.19821C2.19401 6.20243 1.03963 8.90219 0.975228 11.7359C0.910828 14.5695 1.94137 17.319 3.85248 19.4122C5.76358 21.5054 8.40811 22.7812 11.2359 22.9743C14.0637 23.1673 16.8571 22.2628 19.035 20.4487L25.2925 26.7075C25.3854 26.8004 25.4957 26.8741 25.6171 26.9244C25.7385 26.9747 25.8686 27.0005 26 27.0005C26.1314 27.0005 26.2615 26.9747 26.3829 26.9244C26.5043 26.8741 26.6146 26.8004 26.7075 26.7075C26.8004 26.6146 26.8741 26.5043 26.9244 26.3829C26.9747 26.2615 27.0006 26.1314 27.0006 26C27.0006 25.8686 26.9747 25.7385 26.9244 25.6171C26.8741 25.4957 26.8004 25.3854 26.7075 25.2925ZM3.00001 12C3.00001 10.2199 3.52785 8.47989 4.51678 6.99985C5.50572 5.5198 6.91132 4.36625 8.55586 3.68506C10.2004 3.00388 12.01 2.82565 13.7558 3.17291C15.5017 3.52018 17.1053 4.37735 18.364 5.63602C19.6226 6.89469 20.4798 8.49834 20.8271 10.2442C21.1743 11.99 20.9961 13.7996 20.3149 15.4441C19.6337 17.0887 18.4802 18.4943 17.0001 19.4832C15.5201 20.4721 13.78 21 12 21C9.61387 20.9973 7.32623 20.0483 5.63897 18.361C3.95172 16.6738 3.00266 14.3861 3.00001 12Z" fill="#6c6c6c"/>
+          </svg>
+
+        </div>
         <div>
           <input
             type="text"
             placeholder="모임 검색하기..."
-            class="w-[100%] border-none outline-none"
+            class="w-[100%] border-none outline-none text-left text-[#6c6c6c] bg-[#eee] font-semibold"
           />
         </div>
-        <div>
-          <svg width="1.2rem" height="1.2rem" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="..." fill="#343330"/>
-          </svg>
-        </div>
+
       </div>
     </div>
 
     <div class="text-left mx-5 mt-6 mb-4 text-lg font-semibold">바로가기</div>
 
-    <div class="flex flex-col items-center text-left  ">
-      <div ref="slideWrapper" class="flex overflow-x-scroll overflow-y-visible snap-x snap-mandatory mt-2 w-full pb-5 pl-7 pr-10" @scroll="handleScroll">
+    <div class="flex flex-col items-center text-left overflow-visible relative">
+      <div ref="slideWrapper" class="flex overflow-x-scroll overflow-y-visible snap-x snap-mandatory mt-2 w-full pb-20 pl-7 pr-10" @scroll="handleScroll">
         <!-- 직접 하드코딩된 슬라이드 4개 -->
         <div
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
@@ -78,18 +80,18 @@
         </div>
       </div>
 
-      <div class="flex space-x-5">
+      <div class="flex space-x-5 relative bottom-20">
         <div
           v-for="n in 3"
           :key="n"
-          class="w-2 h-2 rounded-full mt-5"
+          class="w-2 h-2 rounded-full mt-8"
           :class="currentSlide === n - 1 ? 'bg-gray-700' : 'bg-gray-300'"
         ></div>
       </div>
     </div>
 
     <!-- 당신이 좋아할 만한 모임 -->
-    <div class="px-5 mt-12 pb-20 text-left">
+    <div class="px-5 py-4 mt-[-3rem] pb-20 text-left">
       <h2 class="mt-6 text-lg font-semibold">당신이 좋아할 만한 모임</h2>
       <div class="mt-4 grid grid-cols-2 gap-4">
         <div v-for="group in recommendedGroups" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
@@ -108,7 +110,7 @@
             </div>
             <div
               style="background: linear-gradient(to right, #FF6BC4, #F599D0CC);"
-              class="bg-black h-[35%] flex flex-col justify-center py-4 pl-3 pt-7 text-white"
+              class="bg-black h-[35%] flex flex-col justify-center  pl-3 py-7 text-white"
             >
               <div class="flex justify-between w-full">
                 <div class="flex flex-col">
