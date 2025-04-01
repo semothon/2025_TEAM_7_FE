@@ -19,13 +19,13 @@
       </div>
     </div>
 
-    <div class="text-left mx-5 mt-7 text-lg font-semibold">바로가기</div>
+    <div class="text-left mx-5 mt-6 mb-4 text-lg font-semibold">바로가기</div>
 
-    <div class="flex flex-col items-center pt-4">
-      <div ref="slideWrapper" class="flex overflow-x-scroll snap-x snap-mandatory mt-2 w-full pl-7 pr-10" @scroll="handleScroll">
+    <div class="flex flex-col items-center text-left  ">
+      <div ref="slideWrapper" class="flex overflow-x-scroll overflow-y-visible snap-x snap-mandatory mt-2 w-full pb-5 pl-7 pr-10" @scroll="handleScroll">
         <!-- 직접 하드코딩된 슬라이드 4개 -->
         <div
-          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 0 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
           <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임탐색</h3>
@@ -37,7 +37,7 @@
         </div>
 
         <div
-          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 1 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
           <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임생성</h3>
@@ -53,8 +53,8 @@
           </button>
         </div>
 
-        <div
-          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
+        <!-- <div
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
           <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">팀원찾기</h3>
@@ -63,11 +63,11 @@
             <img :src="findMemberIcon" class="h-[100px]" />
           </div>
           <button class="mt-6 w-full py-4 text-lg font-semibold bg-black text-[#D5FF8E] rounded-[15px]">팀원 찾아보기</button>
-        </div>
+        </div> -->
 
         <div
-          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow transition"
-          :class="currentSlide === 3 ? 'bg-[#D5FF8E]' : 'bg-white'"
+          class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
+          :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
           <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">지원현황</h3>
           <p class="mt-2 text-sm">내가 지원한 모임 현황이에요<br />지원현황을 확인하고 관리해보세요</p>
@@ -78,11 +78,11 @@
         </div>
       </div>
 
-      <div class="flex space-x-5 mt-7">
+      <div class="flex space-x-5">
         <div
-          v-for="n in 4"
+          v-for="n in 3"
           :key="n"
-          class="w-2 h-2 rounded-full"
+          class="w-2 h-2 rounded-full mt-5"
           :class="currentSlide === n - 1 ? 'bg-gray-700' : 'bg-gray-300'"
         ></div>
       </div>
@@ -146,7 +146,7 @@
     </div>
   </div>
 
-  <Footer />
+  <Footer tab="home" />
 </template>
 
 <script setup>
@@ -156,7 +156,7 @@ import Header from '../components/HeaderComp.vue'
 import Footer from '../components/FooterComp.vue'
 import Create from '../components/svgs/create.svg'
 import FindGroup from '../components/svgs/findGroup.svg'
-import FindMember from '../components/svgs/findMember.svg'
+// import FindMember from '../components/svgs/findMember.svg'
 import Manage from '../components/svgs/manage.svg'
 
 const router = useRouter()
@@ -175,7 +175,7 @@ const handleScroll = (e) => {
 
 const createIcon = Create
 const findGroupIcon = FindGroup
-const findMemberIcon = FindMember
+// const findMemberIcon = FindMember
 const manageIcon = Manage
 
 const recommendedGroups = [
