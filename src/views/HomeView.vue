@@ -30,7 +30,7 @@
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 0 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
-          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임탐색</h3>
+          <h3 class="text-[1.8rem] font-semibold text-[#FF55B6] mt-3">모임탐색</h3>
           <p class="mt-2 text-sm">나의 관심사에 따라<br />마음에 드는 모임을 찾아보세요!</p>
           <div class="flex justify-center my-5">
             <img :src="findGroupIcon" class="h-[100px]" />
@@ -42,7 +42,7 @@
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 1 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
-          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">모임생성</h3>
+          <h3 class="text-[1.8rem] font-semibold text-[#FF55B6] mt-3">모임생성</h3>
           <p class="mt-2 text-sm">마음에 드는 모임이 없나요?<br />직접 모임장이 되어보세요!</p>
           <div class="flex justify-center my-5">
             <img :src="createIcon" class="h-[100px]" />
@@ -59,7 +59,7 @@
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
-          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">팀원찾기</h3>
+          <h3 class="text-[1.8rem] font-semibold text-[#FF55B6] mt-3">팀원찾기</h3>
           <p class="mt-2 text-sm">같이 활동할 팀원을 찾고 싶다면<br />모임에 딱 맞는 팀원을 찾아보세요</p>
           <div class="flex justify-center my-5">
             <img :src="findMemberIcon" class="h-[100px]" />
@@ -71,8 +71,8 @@
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
-          <h3 class="text-[2.2rem] font-bold text-[#FF55B6] mt-3">지원현황</h3>
-          <p class="mt-2 text-sm">내가 지원한 모임 현황이에요<br />지원현황을 확인하고 관리해보세요</p>
+          <h3 class="text-[1.8rem] font-semibold text-[#FF55B6] mt-3">지원현황</h3>
+          <p class="mt-2 text-sm">내가 지원했었던 모임들을<br />한눈에 확인하고, 관리해보세요</p>
           <div class="flex justify-center my-5">
             <img :src="manageIcon" class="h-[100px]" />
           </div>
@@ -92,8 +92,23 @@
 
     <!-- 당신이 좋아할 만한 모임 -->
     <div class="px-5 py-4 mt-[-4.3rem] pb-20 text-left">
-      <h2 class="mt-6 text-xl font-semibold">당신이 좋아할 만한 모임</h2>
-      <div class="mt-7 grid grid-cols-2 gap-4">
+      <h2 class="mt-6 text-xl font-semibold">
+        <div class="flex justify-between items-center">
+          <div>
+            <span class="text-[#FF55B6]">김우진</span>님이 좋아할만한 모임
+          </div>
+          <div class="flex text-[0.7rem] items-center gap-1">
+            <span class="text-gray-600">
+              전체보기
+            </span>
+            <span>
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" width="13" height="13" color="#ADB5BD"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 9-5.25 5.25M12 9 6.75 3.75"></path></svg>
+            </span>
+          </div>
+        </div>
+
+      </h2>
+      <div class="mt-5 grid grid-cols-2 gap-4">
         <div v-for="group in recommendedGroups" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
           <div class="h-[10rem]">
             <div class="h-[65%] bg-blue-800 relative">
@@ -145,7 +160,9 @@
         </div>
       </div>
 
-      <h2 class="mt-[4.5rem] text-xl font-semibold">실시간 인기 모임</h2>
+      <h2 class="mt-[4.5rem] text-xl font-semibold">
+        실시간 인기 모임 TOP 10
+      </h2>
       <div class="mt-4 space-y-3 mb-[60px]">
         <div v-for="popular in popularGroups" :key="popular.name" class="flex">
           <div class="py-5 px-7 inline-block w-[80%] rounded-xl shadow flex items-center justify-between">
