@@ -7,6 +7,7 @@ import PartyIntro1 from '../views/CreateParty/PartyIntro1.vue'
 import PartyIntro2 from '../views/CreateParty/PartyIntro2.vue'
 import WhatPeople from '../views/CreateParty/WhatPeople.vue'
 import RegisterImage from '../views/CreateParty/RegisterImage.vue'
+import LoginView from '../views/Security/LoginView.vue'
 
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
   {
     path: '/create-party/register-image',
     component: RegisterImage
+  },
+
+  {
+    path: '/login',
+    component: LoginView
   },
   
 ]
