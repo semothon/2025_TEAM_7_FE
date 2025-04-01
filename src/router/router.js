@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import MyParty from '../views/MyParty.vue'
 
 import WhatParty from '../views/CreateParty/WhatParty.vue'
 import HowApply from '../views/CreateParty/HowApply.vue'
@@ -16,6 +17,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: HomeView
+  },
+  {
+    path: '/my-party',
+    
+    component: MyParty
   },
 
   {
