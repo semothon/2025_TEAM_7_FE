@@ -36,7 +36,9 @@
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
   import ProgressBar from '../../components/CretaePartyProgressBar.vue'
-  
+  import Cookies from 'js-cookie'
+  import apiClient from "../../api/apiClient"
+
   const router = useRouter()
   
   const fileInput = ref(null)
@@ -55,19 +57,35 @@
     }
   }
   
-  const submit = () => {
+  const submit = async () => {
+    const formData = new FormData()
+
     if (selectedImageFile.value) {
-      const formData = new FormData()
-      formData.append('image', selectedImageFile.value)
-  
-      // 예시용 로그
-      console.log('[✔] 이미지 파일:', selectedImageFile.value)
-      // axios.post('/api/upload', formData) 가능
+      formData.append('thumbnail', selectedImageFile.value)
     }
-  
-    // 페이지 이동
-    router.push('/create-party/complete')
+
+    formData.append('name', Cookies.get('loopin-create-party-name') || '')
+    formData.append('description', Cookies.get('loopin-create-party-des') || '')
+    formData.append('category', Cookies.get('loopin-create-party-category') || '')
+    formData.append('subCategory', Cookies.get('loopin-create-party-sub-category') || '')
+    formData.append('targetMember', Cookies.get('loopin-create-party-age') || '')
+    formData.append('maximumMember', Cookies.get('loopin-create-party-size') || '')
+    formData.append('howApply', Cookies.get('loopin-create-party-how-apply') || '')
+    formData.append('whereMeet', Cookies.get('loopin-create-party-address') || '')
+    formData.append('whenMeet', Cookies.get('loopin-create-party-time') || '')
+
+    try {
+      await apiClient.post('/party/create', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      router.push('/create-party/complete')
+    } catch (err) {
+      console.error('모임 생성 실패:', err)
+    }
   }
+
   </script>
   
   <style scoped>

@@ -91,6 +91,7 @@
   import { ref, computed, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
   import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+  import Cookies from 'js-cookie'
 
   const router = useRouter()
   
@@ -122,6 +123,19 @@
   
   const goNext = () => {
     if (isFormValid.value) {
+        Cookies.set('loopin-create-party-address', address.value +" " + detailAddress.value, { expires: 1 })
+
+      Cookies.set('loopin-create-party-time', 
+        
+          scheduleType.value == 'flexible' ? '' : 
+             selectedDays.value.join(',') + " " + 
+             startTime.value.replace(":","") +  
+             endTime.value.replace(":", "")
+
+        , { expires: 1 })
+
+
+
       router.push('/create-party/how-apply')
     }
   }

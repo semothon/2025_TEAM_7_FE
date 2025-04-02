@@ -69,6 +69,7 @@
   import radio_on from '../../components/svgs/radio_on.svg'
   import { useRouter } from 'vue-router'
   import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+  import Cookies from 'js-cookie'
 
   
   const router = useRouter()
@@ -82,6 +83,7 @@
   const goNext = () => {
     if (radio.value) {
       router.push('/create-party/register-image')
+      Cookies.set('loopin-create-party-how-apply', radio.value,  { expires: 1 })
     }
   }
   </script>

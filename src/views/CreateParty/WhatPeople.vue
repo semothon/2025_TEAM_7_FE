@@ -53,6 +53,7 @@
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
   import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+  import Cookies from 'js-cookie'
 
   const router = useRouter()
   
@@ -86,9 +87,35 @@
   // 하나 이상의 연령대 + 최대인원 선택 시 다음 버튼 활성화
   const canProceed = computed(() => selectedAges.value.length > 0 && selectedSize.value)
   
+
+  const ageMap = {
+  '누구나': 'any',
+  '신입생': 'fresh',
+  '재학생': 'student',
+  '졸업생': 'graduate'
+}
+
+const sizeMap = {
+  '제한없음': -1,
+  '10명': 10,
+  '30명': 30,
+  '50명': 50,
+  '100명': 100
+}
   function handleNextClick() {
     if (!canProceed.value) return
     router.push('/create-party/party-intro-1')
+
+    Cookies.set(
+      'loopin-create-party-age',
+      ageMap[selectedAges.value],
+      { expires: 1 }
+    )
+    Cookies.set(
+      'loopin-create-party-size',
+      sizeMap[selectedSize.value],
+      { expires: 1 }
+    )
   }
   </script>
   

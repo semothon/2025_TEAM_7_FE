@@ -48,8 +48,10 @@
   <script setup>
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
-  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
   
+  import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+  import Cookies from 'js-cookie'
+
   const router = useRouter()
   
   // 카테고리 맵 정의
@@ -61,6 +63,39 @@
     '프로젝트/대외활동': ['교내 공모전', '전국 공모전', '팀 프로젝트', '봉사활동']
   }
   
+
+  const mainCategoryMap = {
+  '스포츠/레저': 'SPORTS_LEISURE',
+  '운동/아웃도어': 'OUTDOOR_ACTIVITY',
+  '스터디/자기계발': 'STUDY_SELF_DEVELOPMENT',
+  '문화/여가': 'CULTURE_TRAVEL',
+  '프로젝트/대외활동': 'PROJECT_ACTIVITY',
+}
+
+const subCategoryMap = {
+  '축구': 'SOCCER',
+  '농구': 'BASKETBALL',
+  '배드민턴': 'BADMINTON',
+  '탁구': 'PINGPONG',
+  '러닝': 'RUNNING',
+  '헬스': 'GYM',
+  '등산': 'HIKING',
+  '산책': 'WALKING',
+  '코딩': 'CODING_STUDY',
+  '어학': 'LANGUAGE_STUDY',
+  '자격증': 'CERT_PREP',
+  '독서': 'BOOK_CLUB',
+  '영화/드라마': 'MOVIE_DRAMA',
+  '음악/악기': 'MUSIC_INSTRUMENT',
+  '맛집/카페': 'CAFE_FOOD',
+  '보드게임': 'BOARD_GAME',
+  '교내 공모전': 'SCHOOL_CONTEST',
+  '전국 공모전': 'NATIONAL_CONTEST',
+  '팀 프로젝트': 'TEAM_PROJECT',
+  '봉사활동': 'VOLUNTEER'
+}
+
+
   const selectedMainCategory = ref(null)
   const selectedSubCategory = ref(null)
   
@@ -79,6 +114,22 @@
   function handleNextClick() {
     if (!canProceed.value) return
     router.push('/create-party/what-people')
+
+    Cookies.set(
+      'loopin-create-party-category',
+      mainCategoryMap[selectedMainCategory.value],
+      { expires: 1 }
+    )
+    console.log(selectedMainCategory.value)
+    console.log(mainCategoryMap[selectedMainCategory.value])
+
+
+    Cookies.set(
+      'loopin-create-party-sub-category',
+      subCategoryMap[selectedSubCategory.value],
+      { expires: 1 }
+    )
+
   }
   </script>
   

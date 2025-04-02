@@ -65,6 +65,7 @@
   import { ref, computed } from 'vue'
   import { useRouter } from 'vue-router'
   import ProgressBar from "../../components/CretaePartyProgressBar.vue"
+  import Cookies from 'js-cookie'
 
   const router = useRouter()
   
@@ -78,6 +79,18 @@
   function handleNextClick() {
     if (!canProceed.value) return
     router.push('/create-party/party-intro-2')
+
+    Cookies.set(
+      'loopin-create-party-name',
+      groupName.value,
+      { expires: 1 }
+    )
+
+    Cookies.set(
+      'loopin-create-party-des',
+      groupIntro.value,
+      { expires: 1 }
+    )
   }
   </script>
   
