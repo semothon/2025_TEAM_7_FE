@@ -10,6 +10,8 @@ import WhatPeople from '../views/CreateParty/WhatPeople.vue'
 import RegisterImage from '../views/CreateParty/RegisterImage.vue'
 import LoginView from '../views/Security/LoginView.vue'
 
+import FindParty from '../views/FindParty/FindPartyView.vue'
+
 
 const routes = [
 
@@ -57,6 +59,11 @@ const routes = [
   {
     path: '/login',
     component: LoginView
+  },
+
+  {
+    path: '/find-party/',
+    component: FindParty
   },
   
 ]
