@@ -1,6 +1,6 @@
 <template>
     <Header />
-    <div class="bg-white min-h-screen px-5 text-left mt-[60px] mb-[8dvh]">
+    <div class="bg-white min-h-screen px-5 text-left mt-[60px] mb-[13dvh]">
       <div class="text-center font-semibold text-[1.08rem] pt-10 pb-2">
         모임탐색
       </div>
