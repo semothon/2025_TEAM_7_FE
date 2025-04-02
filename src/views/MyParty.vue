@@ -1,7 +1,7 @@
 <template>
     <Header />
     <div class="mt-[60px]">
-        <div class="text-center font-semibold text-[1.28rem] pt-10 pb-6">
+        <div class="text-center font-semibold text-[1.08rem] pt-10 pb-6">
            나의모임 
         </div>
       <!-- 탭 메뉴 -->
