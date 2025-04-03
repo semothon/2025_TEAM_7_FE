@@ -11,6 +11,7 @@ import RegisterImage from '../views/CreateParty/RegisterImage.vue'
 import LoginView from '../views/Security/LoginView.vue'
 
 import FindParty from '../views/FindParty/FindPartyView.vue'
+import PartyDetails from '../views/PartyDetails.vue'
 
 
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
     path: '/my-party',
     
     component: MyParty
+  },
+  {
+    path: '/party-details',
+    
+    component: PartyDetails
   },
 
   {
