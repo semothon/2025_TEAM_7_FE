@@ -91,7 +91,7 @@
         <!-- 피드 리스트 -->
         <div class="mt-8 border-t-4 mb-[30px]">
           <div class="text-md  p-5 font-bold text-gray-800 mb-0 border-b-[2px]">최근 올라온 피드</div>
-          <div v-for="(feed, index) in feeds" :key="index" class="mb-0 p-4 border-b border-[#c5c5c5] rounded-lg">
+          <div v-for="(feed, index) in feeds" :key="index" class="mb-0 p-4 border-b">
             <div class="font-bold text-gray-800">
               {{ feed.author }}
             </div>

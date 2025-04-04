@@ -1,7 +1,7 @@
 <template>
 <div class="flex w-dvw justify-between items-center fixed top-0 z-10 pl-3 pr-6  bg-white border-b-[0.1px] border-[#c5c5c5]">
     <!-- 로고 -->
-    <div>
+    <div @click="router.push('/home')">
         <div>
             <img src="../assets/logo.png"  class="w-[7.2rem]"/>
         </div>
@@ -31,6 +31,9 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 </script>
 

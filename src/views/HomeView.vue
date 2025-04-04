@@ -1,8 +1,10 @@
 <template>
   <Header />
 
+
+
   <div class="pt-[71px] h-screen overflow-y-auto bg-white font-sans">
-    <div class="bg-white p-4">
+    <div class="bg-white px-4 py-3">
       <div class="flex gap-4 justify-between items-center border px-4 py-3 rounded-[7px] bg-[#eeeeee]">
         <div>
           <input
@@ -18,17 +20,52 @@
           </svg>
 
         </div>
+      </div>
+    </div>
+    <div class="px-4 pt-3 mb-12">
+      <div class="text-left  mt-2 mb-4 text-xl font-[500] flex text-gray-900 font-[600] gap-2">
+        <div class="">당신의 도전을 응원할게요,</div>
+
+        <div class="flex">
+          <div class="text-[#FF55B6] font-[600]">송예진</div>님</div>
+
+
+      </div>
+
+      <div class="bg-white border-b-3 rounded-[10px] shadow-sm border overflow-visible text-center px-6 py-5 flex justify-between items-center">
+        <div class="flex justify-start items-center gap-4">
+            <span>
+              <img class="w-[14dvw]" src="https://i.namu.wiki/i/Y4fNzEYQIUVc2ar_0eytJEEZk3Ht_n_hdY1z8QDJwM9sI40V5HXF3PIRvKN2XAwNf2Ox-M75exIDrd8evxg-Mg.svg" />
+            </span>
+            <span class="flex flex-col items-start">
+              <span class="font-bold text-gray-900 text-[1.02rem]">
+                경희대학교
+              </span>
+              <div class="font-gray-700 font-semibold text-[0.89rem] flex justify-start gap-1">
+                <div class="font-light">시각디자인학과</div>
+                <div class="font-light">송예진</div>
+              </div>
+            </span>
+        </div>
+
+        <div>
+          <svg class="pr-1" width="1rem" height="1rem" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-d80c3174=""><path d="M0.520004 0.870117L3.39 3.74012C3.4251 3.77372 3.453 3.81408 3.4721 3.85877C3.4912 3.90345 3.501 3.95153 3.501 4.00012C3.501 4.0487 3.4912 4.09679 3.4721 4.14147C3.453 4.18615 3.4251 4.22651 3.39 4.26012L0.520004 7.1301" stroke="#808080" stroke-linecap="round" stroke-linejoin="round" data-v-d80c3174=""></path></svg>
+        </div>
 
 
       </div>
     </div>
 
-    <div class="text-left mx-5 mt-6 mb-4 text-xl font-semibold">바로가기</div>
 
+
+    <div class="text-left mx-5 mt-6 mb-4 text-xl font-semibold">바로가기</div>
+    <div class="text-center text-gray-400 text-sm mb-1">
+      옆으로 넘겨보세요
+    </div>
     <div class="flex flex-col items-center text-left overflow-visible relative">
       <div ref="slideWrapper" class="flex overflow-x-scroll overflow-y-visible snap-x snap-mandatory mt-2 w-full pb-20 pl-7 pr-10" @scroll="handleScroll">
-        <!-- 직접 하드코딩된 슬라이드 4개 -->
-        <div
+
+        <div @click="router.push('/find-party')"
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 0 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
