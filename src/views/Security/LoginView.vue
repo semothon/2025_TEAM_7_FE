@@ -82,7 +82,7 @@ const login = async () => {
   try {
     const response = await axios.post(
       window.location.hostname.includes('vercel.app')
-        ? 'http://13.125.242.31:8080'
+        ? '/api'
         : 'http://localhost:1590/auth/login',
       null,
       {
