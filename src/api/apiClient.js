@@ -8,7 +8,7 @@ const getAccessToken = () => {
 const apiClient = axios.create({
   baseURL:
     window.location.hostname.includes('vercel.app')
-      ? 'https://your-production-domain.com/api'   // 실 배포 주소, login.vue도 수정해야함!!!!
+      ? 'http://13.125.242.31:8080'   // 실 배포 주소, login.vue도 수정해야함!!!!
       : 'http://localhost:1590',
   timeout: 10000,
   headers: {
