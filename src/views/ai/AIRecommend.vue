@@ -74,7 +74,7 @@
         <div class="text-sm text-gray-600 line-clamp-1">{{ group.description }}</div>
       </div>
     </div>
-    <button class="bg-[#ff6bc4] text-white text-sm font-bold py-3 p-3 h-full rounded-lg">둘러보기</button>
+    <button @click="router.push('/party-details/'+group.id)" class="bg-[#ff6bc4] text-white text-sm font-bold py-3 p-3 h-full rounded-lg">둘러보기</button>
   </div>
 
   <button class="mt-12 w-full bg-white text-black font-bold py-4 px-8 rounded-2xl shadow-md text-base">
