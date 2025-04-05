@@ -108,6 +108,7 @@ const handleRecommend = async () => {
       content: userInput.value
     })
 
+    console.log( res.data )
     groups.value = res.data
     isSuccess.value = true
   } catch (err) {
