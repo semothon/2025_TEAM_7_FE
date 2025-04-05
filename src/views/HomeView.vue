@@ -151,15 +151,9 @@
         <div v-for="group in recommendedGroups" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
           <div class="h-[10rem]">
             <div class="h-[65%] bg-blue-800 relative">
-              <img src="asd" />
+              <img :src="group.image" />
               <div class="absolute bottom-2 left-2 flex gap-1">
-                <div
-                  class="bg-[#FFFFFF80] px-[0.4rem] py-[0.15rem] rounded-[15px] font-light text-white text-[0.49rem]"
-                  v-for="hashtag in group.hashtag"
-                  :key="hashtag"
-                >
-                  # {{ hashtag }}
-                </div>
+                <!-- 해시태그 삭제 -->
               </div>
             </div>
             <div
@@ -168,7 +162,7 @@
             >
               <div class="flex justify-between items-center w-full">
                 <div class="flex flex-col">
-                  <span class="font-bold text-[0.92rem]">{{ group.name }}</span>
+                  <span class="font-bold text-[0.92rem] line-clamp-1">{{ group.name }}</span>
                   <span class="text-[0.75rem]">{{ group.category }}</span>
                 </div>
                 <div class="flex items-center">
@@ -207,7 +201,7 @@
           <div class="py-5 px-7 inline-block w-[80%] rounded-xl shadow flex items-center justify-between">
             <div>
               <div class="font-bold">{{ popular.name }}</div>
-              <div class="text-xs text-gray-500">{{ popular.description }}</div>
+              <div class="text-xs text-gray-500 line-clamp-2 pr-2 mt-1">{{ popular.description }}</div>
             </div>
             <div class="flex items-center gap-1">
               <div>
@@ -234,7 +228,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Header from '../components/HeaderComp.vue'
 import Footer from '../components/FooterComp.vue'
@@ -242,6 +236,8 @@ import Create from '../components/svgs/create.svg'
 import FindGroup from '../components/svgs/findGroup.svg'
 // import FindMember from '../components/svgs/findMember.svg'
 import Manage from '../components/svgs/manage.svg'
+import apiClient from "../api/apiClient"
+import { mapMainCategory   } from '../utils/categoryMapper';
 
 const router = useRouter()
 
@@ -262,17 +258,39 @@ const findGroupIcon = FindGroup
 // const findMemberIcon = FindMember
 const manageIcon = Manage
 
-const recommendedGroups = [
-  { name: '축구', category: '스포츠•레저', hashtag: ["Activity", "체육학과", "Teamwork"], image: 'https://source.unsplash.com/random/1' },
-  { name: '등산', category: '운동•아웃도어', hashtag: ["Activity", "Hiking", "Nature"], image: 'https://source.unsplash.com/random/2' },
-  { name: '어학 스터디', category: '스터디•자기계발', hashtag: ["Study", "프랑스어학과", "Exam"], image: 'https://source.unsplash.com/random/3' },
-  { name: '보드게임', category: '문화•여가', hashtag: ["Game", "Party", "Competion"], image: 'https://source.unsplash.com/random/4' },
-]
+let recommendedGroups = ref([])  
+let popularGroups = ref([])
 
-const popularGroups = [
-  { name: '독서 스터디', description: '같이 책 읽고 이야기 나누실 분!', members: '60' },
-  { name: '교내 공모전', description: 'OO공모전 함께 나가실 분!', members: '31' },
-]
+onMounted(async()=>{
+  try {
+      const recommendData = await apiClient.get('/party/getRecommendedParties')
+      
+      recommendedGroups.value = recommendData.data.map(party => ({
+        name: party.name,
+        category: mapMainCategory(party.category),
+        image: `${apiClient.defaults.baseURL}/uploads/thumbnails/${party.thumbnailUrl}`,
+      }));
+
+
+    } catch (err) {
+      console.error('추천 모임 로딩 실패:', err)
+    }
+
+  try {
+      const bestData = await apiClient.get('/party/getBestParties')
+      popularGroups.value = bestData.data.map(party => ({
+        name: party.name,
+        description: party.description,
+        members: 2,
+      }));
+
+    } catch (err) {
+      console.error('인기 모임 로딩 실패 :', err)
+    }
+})
+
+
+
 </script>
 
 <style scoped>
