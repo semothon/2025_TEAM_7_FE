@@ -52,26 +52,29 @@
 </div>
 <div v-if="isSuccess" class="min-h-screen bg-gradient-to-r from-[#ff4fb9] to-[#ffc0e4] flex flex-col items-center justify-center px-4 relative text-black">
   
-  <div class="text-center text-white text-lg leading-relaxed mb-16 font-semibold">
+  <div class="text-center text-white text-lg leading-relaxed mb-12 font-semibold">
     입력하신 정보를 바탕으로<br />
     AI가 찾은 모임이에요!
   </div>
 
-  <div
+  <div class=" text-gray-[400] text-center text-[1.1rem]" v-if="groups.length==0">
+    추천 모임이 없습니다.
+  </div>
+  <div v-else
     v-for="(group, index) in groups"
     :key="index"
     class="w-full max-w-sm bg-white rounded-2xl p-4 mb-4 flex justify-between items-center shadow-[0_4px_12px_rgba(255,107,196,0.2)]"
   >
-    <div class="flex items-center">
-      <div class="w-14 h-14 bg-gray-300 rounded-lg mr-4 ">
-        <img class="w-full h-full" :src="getThumbnailUrl(group.thumbnailUrl)" />
+    <div class="flex items-center max-w-[55dvw] flex">
+      <div class="w-[15dvw] h-14 bg-gray-300 rounded-lg mr-4 ">
+        <img class="w-full h-full rounded-lg" :src="getThumbnailUrl(group.thumbnailUrl)" />
       </div>
-      <div class="flex flex-col text-left">
+      <div class="flex flex-col w-[40dvw] text-left">
         <div class="font-bold mb-1 line-clamp-1">{{ group.name }}</div>
         <div class="text-sm text-gray-600 line-clamp-1">{{ group.description }}</div>
       </div>
     </div>
-    <button class="bg-[#ff6bc4] text-white text-sm font-bold py-1.5 px-3 rounded-lg">둘러보기</button>
+    <button class="bg-[#ff6bc4] text-white text-sm font-bold py-3 p-3 h-full rounded-lg">둘러보기</button>
   </div>
 
   <button class="mt-12 w-full bg-white text-black font-bold py-4 px-8 rounded-2xl shadow-md text-base">
