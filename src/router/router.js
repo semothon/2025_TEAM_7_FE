@@ -18,6 +18,7 @@ import UniversityInfo from '../views/UniversityInfo.vue'
 import AIRecommend from '../views/ai/AIRecommend.vue'
 import AIResult from '../views/ai/AIResult.vue'
 import ApplyStatus from '../views/ApplyStatus.vue'
+import InitPage from '../views/InitPage.vue'
 
 
 const routes = [
@@ -98,6 +99,10 @@ const routes = [
   {
     path: '/apply-status',
     component: ApplyStatus
+  },
+  {
+    path: '/',
+    component: InitPage
   },
   
 ]

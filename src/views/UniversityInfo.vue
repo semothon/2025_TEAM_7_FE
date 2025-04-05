@@ -98,7 +98,7 @@
     isLoading.value = true
   
     try {
-      const res = await axios.post('/univ-auth', formData, {
+      const res = await axios.post('/auth/univ-auth', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       const data = res.data?.data
