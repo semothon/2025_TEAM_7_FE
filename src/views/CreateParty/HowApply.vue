@@ -1,8 +1,8 @@
 <template>
     <div id="main" class="text-left">
-      <div id="top">
-        <span @click="router.push('/home')">×</span>
-      </div>
+        <div id="top">
+          <span @click="router.push('/home')">×</span>
+        </div>
 
       <ProgressBar :count="5" />
 

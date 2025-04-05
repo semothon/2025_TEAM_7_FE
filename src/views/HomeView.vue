@@ -107,6 +107,7 @@
         </div> -->
 
         <div
+        @click="router.push('/apply-status')"
           class="snap-center flex-shrink-0 w-[75vw] mx-[4vw] rounded-[20px] px-7 py-3 shadow-2xl transition"
           :class="currentSlide === 2 ? 'bg-[#D5FF8E]' : 'bg-white'"
         >
@@ -151,7 +152,7 @@
         <div v-for="group in recommendedGroups" @click="router.push('/party-details/'+group.id)" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
           <div class="h-[10rem]">
             <div class="h-[65%] bg-black relative overflow-hidden">
-              <img  class="" :src="getThumbnailUrl(group.image)" />
+              <img  class="h-full w-full" :src="getThumbnailUrl(group.image)" />
               <div class="absolute bottom-2 left-2 flex gap-1">
                 <!-- 해시태그 삭제 -->
               </div>

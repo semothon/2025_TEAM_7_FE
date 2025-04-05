@@ -20,47 +20,55 @@
 
     </div>
 
-<!-- 모임 카드 리스트 -->
-<div class="flex flex-col gap-3 ml-2">
-  <div
-    v-for="party in partyList"
-    :key="party.id"
-    class="flex items-center justify-between w-[85vw] bg-white rounded-2xl border px-4 py-2"
-  >
-    <!-- 썸네일 -->
-    <div class="w-14 h-14 bg-gray-300 rounded-xl shrink-0 overflow-hidden">
-      <img
-        v-if="party.thumbnailUrl"
-        :src="getThumbnailUrl(party.thumbnailUrl)"
-        alt="썸네일"
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <!-- 텍스트 -->
-    <div class="flex flex-col ml-3 text-left grow">
-      <div class="text-[0.95rem] font-bold">{{ party.name }}</div>
-      <div class="text-[0.75rem] text-gray-500 truncate w-[50vw]">
-        {{ party.description || '모임 소개 없음' }}
-      </div>
-      <div class="flex items-center mt-1 text-[0.7rem] text-gray-400">
-        <svg class="mr-1" width="12" height="12" viewBox="0 0 16 16" fill="none">
-          <path d="M5.333 7.999c0 1.473 1.194 2.667 2.667 2.667A2.667 2.667 0 0010.667 8c0-1.472-1.194-2.667-2.667-2.667A2.667 2.667 0 005.333 8zm7.334 0c0 2.577-2.09 4.667-4.667 4.667A4.667 4.667 0 013.333 8c0-2.577 2.09-4.667 4.667-4.667A4.667 4.667 0 0112.667 8z" fill="#aaa"/>
-        </svg>
-        {{ party.memberCount }}명
-      </div>
-    </div>
-
-    <!-- 화살표 -->
     <div>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M9 6l6 6-6 6" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+
     </div>
-  </div>
 </div>
 
-</div>
+
+<!-- 모임 카드 리스트 -->
+ <div class="flex justify-center mt-5">
+        <div class="flex flex-col gap-3 ml-2">
+        <div @click="router.push('/party-details/'+party.id)"
+            v-for="party in partyList"
+            :key="party.id"
+            class="flex items-center justify-between w-[92vw] bg-white rounded-2xl border px-4 py-2"
+        >
+            <!-- 썸네일 -->
+            <div class="w-20 h-20 bg-gray-300 rounded-xl shrink-0 overflow-hidden">
+            <img
+                v-if="party.thumbnailUrl"
+                :src="getThumbnailUrl(party.thumbnailUrl)"
+                alt="썸네일"
+                class="w-full h-full object-cover"
+            />
+            </div>
+
+            <!-- 텍스트 -->
+            <div class="flex flex-col ml-3 text-left grow">
+            <div class="text-[0.95rem] font-bold">{{ party.name }}</div>
+            <div class="text-[0.75rem] text-gray-500 truncate w-[50vw]">
+                {{ party.description || '모임 소개 없음' }}
+            </div>
+            <div class="flex items-center gap-1 mt-1 text-[0.7rem] text-gray-400">
+                <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.4331 12.75C13.3892 12.826 13.3261 12.8891 13.25 12.933C13.174 12.9769 13.0878 13 13 13H0.999976C0.912251 12.9999 0.826094 12.9767 0.750155 12.9328C0.674217 12.8889 0.611171 12.8258 0.567347 12.7498C0.523524 12.6738 0.500466 12.5876 0.500488 12.4999C0.500511 12.4121 0.523613 12.326 0.567476 12.25C1.51935 10.6044 2.98623 9.42437 4.6981 8.86499C3.85133 8.3609 3.19344 7.59279 2.82547 6.67861C2.45749 5.76444 2.39978 4.75474 2.66119 3.80459C2.9226 2.85444 3.48868 2.01636 4.27249 1.41907C5.05631 0.821776 6.01452 0.498291 6.99998 0.498291C7.98543 0.498291 8.94364 0.821776 9.72746 1.41907C10.5113 2.01636 11.0774 2.85444 11.3388 3.80459C11.6002 4.75474 11.5425 5.76444 11.1745 6.67861C10.8065 7.59279 10.1486 8.3609 9.30185 8.86499C11.0137 9.42437 12.4806 10.6044 13.4325 12.25C13.4765 12.3259 13.4997 12.4121 13.4998 12.4999C13.4999 12.5877 13.4769 12.6739 13.4331 12.75Z" fill="#C7C7C7"/>
+                </svg>
+
+                {{ party.memberCount }}명
+            </div>
+            </div>
+
+            <!-- 화살표 -->
+            <div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M9 6l6 6-6 6" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+        </div>
+        </div>
+    </div>
+
 
 </template>
 
@@ -81,7 +89,7 @@ const partyList = ref([])
 
 onMounted(async () => {
   try {
-    const res = await apiClient.get('/getCategory/' + subCategory)
+    const res = await apiClient.get('/party/getCategory/' + subCategory)
     partyList.value = res.data
   } catch (err) {
     console.error('카테고리별 모임 로딩 실패:', err)

@@ -193,9 +193,17 @@ function openJoinModal() {
   modalStep.value = 'confirm'
 }
 
-function joinParty() {
-  console.log('참가하기 요청!')
-  modalStep.value = 'complete'
+async function joinParty() {
+  try {
+    await apiClient.post('/apply', {
+      partyId: partyInfo.value.id
+    })
+    modalStep.value = 'complete'
+  } catch (err) {
+    console.error('참가 신청 실패:', err)
+    alert('참가 신청 중 오류가 발생했습니다.')
+    closeModal()
+  }
 }
 
 function closeModal() {

@@ -75,12 +75,12 @@
     formData.append('whenMeet', Cookies.get('loopin-create-party-time') || '')
 
     try {
-      await apiClient.post('/party/create', formData, {
+      const response = await apiClient.post('/party/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
-      router.push('/create-party/complete')
+      router.push('/party-details/'+response.data)
     } catch (err) {
       console.error('모임 생성 실패:', err)
     }

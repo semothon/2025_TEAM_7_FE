@@ -13,6 +13,11 @@ import LoginView from '../views/Security/LoginView.vue'
 import FindParty from '../views/FindParty/FindPartyView.vue'
 import PartyDetails from '../views/PartyDetails.vue'
 import CategoryList from '../views/FindParty/CategoryList.vue'
+import UniversityInfo from '../views/UniversityInfo.vue'
+
+import AIRecommend from '../views/ai/AIRecommend.vue'
+import AIResult from '../views/ai/AIResult.vue'
+import ApplyStatus from '../views/ApplyStatus.vue'
 
 
 const routes = [
@@ -76,6 +81,23 @@ const routes = [
   {
     path: '/find-party/',
     component: FindParty
+  },
+
+  {
+    path: '/university-info',
+    component: UniversityInfo
+  },
+  {
+    path: '/ai-recommend',
+    component: AIRecommend
+  },
+  {
+    path: '/ai-result',
+    component: AIResult
+  },
+  {
+    path: '/apply-status',
+    component: ApplyStatus
   },
   
 ]
