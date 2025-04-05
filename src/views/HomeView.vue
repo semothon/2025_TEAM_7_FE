@@ -27,7 +27,7 @@
         <div class="">당신의 도전을 응원할게요,</div>
 
         <div class="flex">
-          <div class="text-[#FF55B6] font-[600]">송예진</div>님</div>
+          <div class="text-[#FF55B6] font-[600]">{{realname}}</div>님</div>
 
 
       </div>
@@ -42,8 +42,8 @@
                 경희대학교
               </span>
               <div class="font-gray-700 font-semibold text-[0.89rem] flex justify-start gap-1">
-                <div class="font-light">시각디자인학과</div>
-                <div class="font-light">송예진</div>
+                <div class="font-light">{{college}}</div>
+                <div class="font-light">{{realname}}</div>
               </div>
             </span>
         </div>
@@ -148,10 +148,10 @@
 
       </h2>
       <div class="mt-5 grid grid-cols-2 gap-4">
-        <div v-for="group in recommendedGroups" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
+        <div v-for="group in recommendedGroups" @click="router.push('/party-details/'+group.id)" :key="group.name" class="rounded-[20px] overflow-hidden shadow">
           <div class="h-[10rem]">
-            <div class="h-[65%] bg-blue-800 relative">
-              <img :src="group.image" />
+            <div class="h-[65%] bg-black relative overflow-hidden">
+              <img  class="" :src="getThumbnailUrl(group.image)" />
               <div class="absolute bottom-2 left-2 flex gap-1">
                 <!-- 해시태그 삭제 -->
               </div>
@@ -213,7 +213,7 @@
             </div>
           </div>
 
-          <div class="bg-[#FF6BC4] flex items-center justify-center w-[17%] ml-[3%] rounded-[10px]">
+          <div class="bg-[#FF6BC4] flex items-center justify-center w-[17%] ml-[3%] rounded-[10px]" @click="router.push('/party-details/'+popular.id)">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 8C4 7.73478 4.10536 7.48043 4.29289 7.29289C4.48043 7.10536 4.73478 7 5 7H27C27.2652 7 27.5196 7.10536 27.7071 7.29289C27.8946 7.48043 28 7.73478 28 8C28 8.26522 27.8946 8.51957 27.7071 8.70711C27.5196 8.89464 27.2652 9 27 9H5C4.73478 9 4.48043 8.89464 4.29289 8.70711C4.10536 8.51957 4 8.26522 4 8ZM5 17H14C14.2652 17 14.5196 16.8946 14.7071 16.7071C14.8946 16.5196 15 16.2652 15 16C15 15.7348 14.8946 15.4804 14.7071 15.2929C14.5196 15.1054 14.2652 15 14 15H5C4.73478 15 4.48043 15.1054 4.29289 15.2929C4.10536 15.4804 4 15.7348 4 16C4 16.2652 4.10536 16.5196 4.29289 16.7071C4.48043 16.8946 4.73478 17 5 17ZM16 23H5C4.73478 23 4.48043 23.1054 4.29289 23.2929C4.10536 23.4804 4 23.7348 4 24C4 24.2652 4.10536 24.5196 4.29289 24.7071C4.48043 24.8946 4.73478 25 5 25H16C16.2652 25 16.5196 24.8946 16.7071 24.7071C16.8946 24.5196 17 24.2652 17 24C17 23.7348 16.8946 23.4804 16.7071 23.2929C16.5196 23.1054 16.2652 23 16 23ZM29.7075 24.7075C29.6146 24.8005 29.5043 24.8742 29.3829 24.9246C29.2615 24.9749 29.1314 25.0008 29 25.0008C28.8686 25.0008 28.7385 24.9749 28.6171 24.9246C28.4957 24.8742 28.3854 24.8005 28.2925 24.7075L25.75 22.17C24.716 22.8522 23.4657 23.1262 22.2412 22.9391C21.0167 22.752 19.9052 22.117 19.1222 21.1572C18.3392 20.1973 17.9403 18.981 18.0029 17.7439C18.0655 16.5067 18.5851 15.3369 19.461 14.461C20.3369 13.5851 21.5067 13.0655 22.7439 13.0029C23.981 12.9403 25.1973 13.3392 26.1572 14.1222C27.117 14.9052 27.752 16.0167 27.9391 17.2412C28.1262 18.4657 27.8522 19.716 27.17 20.75L29.7075 23.2875C29.8012 23.3805 29.8756 23.4911 29.9264 23.6129C29.9772 23.7348 30.0033 23.8655 30.0033 23.9975C30.0033 24.1295 29.9772 24.2602 29.9264 24.3821C29.8756 24.5039 29.8012 24.6145 29.7075 24.7075ZM23 21C23.5933 21 24.1734 20.8241 24.6667 20.4944C25.1601 20.1648 25.5446 19.6962 25.7716 19.1481C25.9987 18.5999 26.0581 17.9967 25.9424 17.4147C25.8266 16.8328 25.5409 16.2982 25.1213 15.8787C24.7018 15.4591 24.1672 15.1734 23.5853 15.0576C23.0033 14.9419 22.4001 15.0013 21.8519 15.2284C21.3038 15.4554 20.8352 15.8399 20.5056 16.3333C20.1759 16.8266 20 17.4067 20 18C20 18.7956 20.3161 19.5587 20.8787 20.1213C21.4413 20.6839 22.2044 21 23 21Z" fill="white"/>
             </svg>
@@ -237,9 +237,14 @@ import FindGroup from '../components/svgs/findGroup.svg'
 // import FindMember from '../components/svgs/findMember.svg'
 import Manage from '../components/svgs/manage.svg'
 import apiClient from "../api/apiClient"
-import { mapMainCategory   } from '../utils/categoryMapper';
+import { mapMainCategory  } from '../utils/categoryMapper';
+import { getThumbnailUrl } from '../utils/imageUtils'
 
 const router = useRouter()
+
+const realname = ref()
+const college = ref()
+
 
 const goCreateParty = () => {
   router.push('/create-party/what-party')
@@ -266,9 +271,10 @@ onMounted(async()=>{
       const recommendData = await apiClient.get('/party/getRecommendedParties')
       
       recommendedGroups.value = recommendData.data.map(party => ({
+        id : party.id,
         name: party.name,
         category: mapMainCategory(party.category),
-        image: `${apiClient.defaults.baseURL}/uploads/thumbnails/${party.thumbnailUrl}`,
+        image: `${party.thumbnailUrl}`,
       }));
 
 
@@ -279,10 +285,22 @@ onMounted(async()=>{
   try {
       const bestData = await apiClient.get('/party/getBestParties')
       popularGroups.value = bestData.data.map(party => ({
+        id : party.id,
         name: party.name,
         description: party.description,
         members: 2,
       }));
+
+    } catch (err) {
+      console.error('인기 모임 로딩 실패 :', err)
+    }
+
+
+  try {
+      const currentUserData = await apiClient.get('/auth/current-user')
+      realname.value= currentUserData.data.realName
+      college.value= currentUserData.data.department
+
 
     } catch (err) {
       console.error('인기 모임 로딩 실패 :', err)

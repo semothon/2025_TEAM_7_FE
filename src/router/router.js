@@ -12,6 +12,7 @@ import LoginView from '../views/Security/LoginView.vue'
 
 import FindParty from '../views/FindParty/FindPartyView.vue'
 import PartyDetails from '../views/PartyDetails.vue'
+import CategoryList from '../views/FindParty/CategoryList.vue'
 
 
 const routes = [
@@ -27,7 +28,12 @@ const routes = [
     component: MyParty
   },
   {
-    path: '/party-details',
+    path: '/find-party/category-details',
+    
+    component: CategoryList
+  },
+  {
+    path: '/party-details/:id',
     
     component: PartyDetails
   },
@@ -64,7 +70,7 @@ const routes = [
 
   {
     path: '/login',
-    component: LoginView
+    component: LoginView  
   },
 
   {

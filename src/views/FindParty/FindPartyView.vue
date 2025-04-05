@@ -136,67 +136,67 @@
     },
     '러닝': {
       description: '도심을 달리며 힐링 한 스푼!',
-      image: new URL('@/assets/images/category/sport_leisure/축구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/러닝.png', import.meta.url).href
     },
     '헬스': {
       description: '함께 벌크업 가즈아!',
-      image: new URL('@/assets/images/category/sport_leisure/농구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/헬스.png', import.meta.url).href
     },
     '등산': {
       description: '정상에서 만나는 뿌듯함!',
-      image: new URL('@/assets/images/category/sport_leisure/배드민턴.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/등산.png', import.meta.url).href
     },
     '산책': {
       description: '말벗과 걷는 여유로운 시간',
-      image: new URL('@/assets/images/category/sport_leisure/탁구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/산책.png', import.meta.url).href
     },
     '코딩': {
       description: '버그를 뚫고 성장하는 우리!',
-      image: new URL('@/assets/images/category/sport_leisure/축구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/코딩.png', import.meta.url).href
     },
     '어학': {
       description: '함께하면 말문이 트여요!',
-      image: new URL('@/assets/images/category/sport_leisure/농구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/어학.png', import.meta.url).href
     },
     '자격증': {
       description: '목표 자격증, 함께 달성!',
-      image: new URL('@/assets/images/category/sport_leisure/배드민턴.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/자격증.jpg', import.meta.url).href
     },
     '독서': {
       description: '책으로 나누는 깊은 대화',
-      image: new URL('@/assets/images/category/sport_leisure/탁구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/독서.png', import.meta.url).href
     },
     '영화/드라마': {
       description: '영화보다 더 영화 같은 모임',
-      image: new URL('@/assets/images/category/sport_leisure/축구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/영화_드라마.png', import.meta.url).href
     },
     '음악/악기': {
       description: '멜로디로 마음을 나누다',
-      image: new URL('@/assets/images/category/sport_leisure/농구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/음악_악기.png', import.meta.url).href
     },
     '맛집/카페': {
       description: '미식 탐방 동행 구해요!',
-      image: new URL('@/assets/images/category/sport_leisure/배드민턴.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/카페_맛집.png', import.meta.url).href
     },
     '보드게임': {
       description: '전략과 웃음이 넘치는 저녁',
-      image: new URL('@/assets/images/category/sport_leisure/탁구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/보드게임.png', import.meta.url).href
     },
     '교내 공모전': {
       description: '아이디어를 현실로!',
-      image: new URL('@/assets/images/category/sport_leisure/축구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/팀프로젝트.png', import.meta.url).href
     },
     '전국 공모전': {
       description: '도전, 우리 팀이면 가능!',
-      image: new URL('@/assets/images/category/sport_leisure/농구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/팀프로젝트.png', import.meta.url).href
     },
     '팀 프로젝트': {
       description: '같이 만들고 같이 성장!',
-      image: new URL('@/assets/images/category/sport_leisure/배드민턴.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/팀프로젝트.png', import.meta.url).href
     },
     '봉사활동': {
       description: '작은 손길로 큰 감동을!',
-      image: new URL('@/assets/images/category/sport_leisure/탁구.png', import.meta.url).href
+      image: new URL('@/assets/images/category/sport_leisure/봉사.png', import.meta.url).href
     }
   }
   
