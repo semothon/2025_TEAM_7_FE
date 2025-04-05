@@ -65,7 +65,7 @@
   <script setup>
   import { ref, reactive } from 'vue'
   import { useRouter } from 'vue-router'
-  import axios from 'axios'
+  import apiClient from '../api/apiClient'
   
   const router = useRouter()
   
@@ -98,7 +98,7 @@
     isLoading.value = true
   
     try {
-      const res = await axios.post('/auth/univ-auth', formData, {
+      const res = await apiClient.post('/auth/univ-auth', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       const data = res.data?.data
