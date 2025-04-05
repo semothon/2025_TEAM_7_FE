@@ -172,7 +172,7 @@ const dayMap = {
 }
 
 function formatWhenMeet(whenMeet) {
-  if (!whenMeet) return ''
+  if (!whenMeet) return '유동적임'
   const [dayPart, startTime, endTime] = whenMeet.split(/\s+/)
   if (!dayPart || !startTime || !endTime) return whenMeet
   const days = dayPart

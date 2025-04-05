@@ -99,11 +99,14 @@
   
     try {
       const res = await apiClient.post('/auth/univ-auth', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: { 'Content-Type': 'multipart/form-data' },
+        timeout: 0 // ❗️타임아웃 제한 없음
+
       })
       const data = res.data?.data
   
       if (res.data.success) {
+        console.log(data)
         form.school = data.university
         form.department = data.department
         form.studentId = data.studentId
